@@ -1,5 +1,13 @@
 import React from 'react';
-import { GridItem, Box, Flex, Text } from '@chakra-ui/react';
+import {
+  GridItem,
+  Box,
+  Flex,
+  Text,
+  Stack,
+  Avatar,
+  Button,
+} from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
 import { useAuth } from '../../hooks/useAuth';
@@ -12,22 +20,20 @@ const Nav = () => {
       <Flex>
         {user && (
           <>
-            <Link to="/">
-              <Text fontSize="md" mr={8}>
-                Dashboard
-              </Text>
-            </Link>
-            <Box as="button" onClick={logout}>
-              <Text fontSize="md" mr={8}>
-                Logout
-              </Text>
-            </Box>
+            <Stack direction="column" justify="center" align="center">
+              <Avatar name={user.displayName} src={user.photoURL} />
+              <Text fontSize="md">{user.displayName}</Text>
+              {/* <Box as="button" onClick={logout}>
+                <Text fontSize="md">Logout</Text>
+              </Box> */}
+              <Button onClick={logout}>Logout</Button>
+            </Stack>
           </>
         )}
         {!user && (
           <Link to="/login">
             <Text fontSize="md" mr={8}>
-              Login
+              FBM Internal Tooling
             </Text>
           </Link>
         )}

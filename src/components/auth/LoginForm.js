@@ -1,22 +1,12 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
-import {
-  Heading,
-  GridItem,
-  Alert,
-  AlertIcon,
-  FormLabel,
-  FormControl,
-  Input,
-  Button,
-} from '@chakra-ui/react';
+import { Heading, GridItem, Button } from '@chakra-ui/react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 
 import { useAuth } from '../../hooks/useAuth';
 
 const LoginForm = () => {
-  const { handleSubmit, register, errors, setError, formState } = useForm();
-
   const history = useHistory();
   const { sendSignInPopup } = useAuth();
 
@@ -37,6 +27,7 @@ const LoginForm = () => {
         Login to FBM Internal
       </Heading>
       <Button onClick={onClick} mt={4} colorScheme="teal">
+        <FontAwesomeIcon pull="left" icon={faGoogle} />
         Login with Google
       </Button>
     </GridItem>

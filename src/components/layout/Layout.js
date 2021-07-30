@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
   return (
     <Grid
       minH="100vh"
-      templateColumns="repeat(3, 1fr)"
+      templateColumns="repeat(4, 1fr)"
       templateRows="max-content"
       gap={6}
       p={6}
